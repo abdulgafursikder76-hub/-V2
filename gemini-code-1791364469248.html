@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unseen Bangladesh - ৬৪ জেলার ভ্রমণ ম্যাপ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- নেভিগেশন বার -->
+  <nav class="navbar">
+    <div class="logo"><i class="fas fa-map-marked-alt"></i> UNSEEN <span>BANGLADESH</span></div>
+    <ul class="nav-links">
+      <li><a href="#" class="nav-btn active" onclick="switchTab('tracker')">ম্যাপ ট্র্যাকার</a></li>
+      <li><a href="#" class="nav-btn" onclick="switchTab('blog')">ব্লগ</a></li>
+      <li><a href="#" class="nav-btn" onclick="switchTab('about')">আমাদের সম্পর্কে</a></li>
+    </ul>
+  </nav>
+
+  <!-- প্রধান ট্র্যাকার সেকশন -->
+  <main id="trackerTab" class="tab-content active">
+    <section class="hero-section">
+      <h1>বাংলাদেশের কতগুলো জেলা আপনি ঘুরেছেন?</h1>
+      <p>নিচের জেলাগুলোতে ক্লিক করে আপনার ভ্রমণ করা জেলাগুলো মার্ক করুন এবং আপনার নিজস্ব পার্সোনাল ট্রাভেল ম্যাপ কার্ড তৈরি করুন।</p>
+      
+      <!-- প্রোগ্রেস বার সেকশন -->
+      <div class="progress-container">
+        <div class="stats-box">
+          <h2><span id="visitedCount">0</span> / 64</h2>
+          <p>জেলা এক্সপ্লোর করা হয়েছে (<span id="percentage">0%</span>)</p>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+      </div>
+
+      <!-- নাম কাস্টমাইজেশন -->
+      <div class="card-customize">
+        <input type="text" id="userName" placeholder="আপনার নাম লিখুন (ম্যাপ কার্ডের জন্য)..." oninput="updateCardName()" />
+      </div>
+    </section>
+
+    <!-- ফিল্টার ও সার্চ -->
+    <section class="filter-section">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="districtSearch" placeholder="জেলা খুঁজুন..." onkeyup="filterDistricts()" />
+      </div>
+      <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterByStatus('all')">সবগুলো</button>
+        <button class="filter-btn" onclick="filterByStatus('visited')">ভ্রমণ করা হয়েছে</button>
+        <button class="filter-btn" onclick="filterByStatus('unvisited')">বাকি আছে</button>
+      </div>
+    </section>
+
+    <!-- জেলা গ্রিড -->
+    <section class="container">
+      <div class="district-grid" id="districtGrid">
+        <!-- JS দিয়ে ৬৪টি জেলা ডায়নামিকালি লোড হবে -->
+      </div>
+    </section>
+  </main>
+
+  <!-- ব্লগ সেকশন -->
+  <section id="blogTab" class="tab-content container">
+    <h2 class="page-title">ট্রাভেল ব্লগ ও গাইডলাইন</h2>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?w=600" alt="Sajek">
+        <div class="blog-content">
+          <span class="category">গাইডলাইন</span>
+          <h3>কম খরচে সাজেক ভ্যালি ভ্রমণের সেরা সময় ও রুট</h3>
+          <p>পাহাড়ের চূড়ায় মেঘ ছোঁয়ার অভিজ্ঞতা পেতে কীভাবে বাজেট ট্রিপ প্ল্যান করবেন জেনে নিন...</p>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600" alt="Tanguar">
+        <div class="blog-content">
+          <span class="category">টিপস</span>
+          <h3>টাঙ্গুয়ার হাওরে হাউসবোট বুকিংয়ের সতর্কবার্তা</h3>
+          <p>বর্ষায় সুনামগঞ্জের হাওর ভ্রমণের আগে বোট সিলেক্ট ও নিরাপত্তার যেসব বিষয় খেয়াল রাখা জরুরি...</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- এবাউট সেকশন -->
+  <section id="aboutTab" class="tab-content container">
+    <div class="about-card">
+      <h2><i class="fas fa-compass"></i> Unseen Bangladesh সম্পর্কে</h2>
+      <p>Unseen Bangladesh হলো একটি ওপেন ট্রাভেল ম্যাপিং প্ল্যাটফর্ম। এর উদ্দেশ্য বাংলাদেশের প্রতিটি কোণায় লুকিয়ে থাকা অফবিট ও অদেখা সৌন্দর্যগুলোকে ভ্রমণপিয়াসী মানুষের সামনে তুলে ধরা।</p>
+      <p>এখানে আপনি দেশের ৬৪ জেলায় আপনার ভ্রমণের অগ্রগতি ট্র্যাক করতে পারবেন এবং কোন কোন জেলা এখনও ঘুরে দেখা বাকি তা সহজেই চিহ্নিত করে পরবর্তী ট্রিপ প্ল্যান করতে পারবেন।</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Unseen Bangladesh | Made with <i class="fas fa-heart" style="color:#22c55e;"></i> for Travelers</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

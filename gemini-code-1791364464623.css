@@ -1,0 +1,307 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0b0f19;
+  color: #f3f4f6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* নেভিগেশন */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  background: #111827;
+  border-bottom: 1px solid #1f2937;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.logo span {
+  color: #22c55e;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+.nav-btn {
+  color: #9ca3af;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-btn.active, .nav-btn:hover {
+  background: #1f2937;
+  color: #22c55e;
+}
+
+/* হিরো ও প্রোগ্রেস সেকশন */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: radial-gradient(circle at top, #111827 0%, #0b0f19 100%);
+}
+
+.hero-section h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #f9fafb;
+}
+
+.hero-section p {
+  color: #9ca3af;
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+
+.progress-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #111827;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+}
+
+.stats-box h2 {
+  font-size: 2.2rem;
+  color: #22c55e;
+}
+
+.stats-box p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 12px;
+  background: #1f2937;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #16a34a, #4ade80);
+  transition: width 0.4s ease;
+}
+
+.card-customize input {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  background: #1f2937;
+  color: #fff;
+  outline: none;
+  text-align: center;
+}
+
+/* ফিল্টার */
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 30px auto 10px;
+  padding: 0 20px;
+  gap: 15px;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-box i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 15px 10px 40px;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  background: #111827;
+  color: #fff;
+  outline: none;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 8px 14px;
+  border: 1px solid #374151;
+  background: #111827;
+  color: #9ca3af;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: #22c55e;
+  color: #000;
+  font-weight: 600;
+}
+
+/* কন্টেইনার ও জেলা গ্রিড */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1;
+}
+
+.district-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.district-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s ease;
+}
+
+.district-card:hover {
+  border-color: #374151;
+  transform: translateY(-2px);
+}
+
+.district-card.visited {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: #22c55e;
+  color: #4ade80;
+}
+
+.district-card h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.district-card span {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.district-card.visited span {
+  color: #86efac;
+}
+
+/* ব্লগ ও এবাউট পেজ */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.page-title {
+  margin-bottom: 25px;
+  border-left: 4px solid #22c55e;
+  padding-left: 12px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.blog-card {
+  background: #111827;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #1f2937;
+}
+
+.blog-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.category {
+  color: #22c55e;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.blog-content h3 {
+  margin: 8px 0;
+
+}
+
+.blog-content p {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.about-card {
+  background: #111827;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  line-height: 1.8;
+}
+
+.about-card h2 {
+  color: #22c55e;
+  margin-bottom: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111827;
+  border-top: 1px solid #1f2937;
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 40px;
+}
